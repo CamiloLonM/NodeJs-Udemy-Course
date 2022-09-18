@@ -32,5 +32,10 @@ const UserSchema = Schema({
     }
 })
 
+// Sacando parametros que no quiere mostrar
+UserSchema.methods.toJSON = function () {
+    const { __v, password, ...user } = this.toObject()
+    return user
+}
 
-module.exports = model('USER', UserSchema)
+module.exports = model('User', UserSchema)
