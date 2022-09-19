@@ -9,7 +9,8 @@ Nodejs course.
 - TypeScript
 - Mysql
 - SocketIO
-- Heroku ...
+- Heroku
+- and more ...
 
 # Install
 
