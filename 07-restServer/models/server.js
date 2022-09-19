@@ -36,7 +36,7 @@ class Server {
     }
 
     routes() {
-        this.app.use('/api/user', require('../routes/users'))                    // path  de routes como middleware condiciónal
+        this.app.use('/api/user', require('../routes/users'))      // path  de routes como middleware condiciónal
     }
 
     listen() {

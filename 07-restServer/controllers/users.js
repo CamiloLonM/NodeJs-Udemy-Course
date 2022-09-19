@@ -33,10 +33,11 @@ const userPost = async (req, res) => {
     // const { name, email } = req.body
     // Recibir  info del body
     // const body = req.body
+
     const { name, email, password, role } = req.body
     const user = new User({ name, email, password, role })              // Crear la nueva instancia del usuario(informacion establecerle)
     // Encriptar password
-    const salt = bcryptjs.genSaltSync(10)
+    const salt = bcryptjs.genSaltSync()
     user.password = bcryptjs.hashSync(password, salt)
     //Guardar en DB
     await user.save()
@@ -49,7 +50,7 @@ const userPost = async (req, res) => {
 
 const userPut = async (req, res) => {
     const { id } = req.params
-    const { _id, password, google, email, ...rest } = req.body   // Se maneja el Id, no se puede procesar por chocque con la DB
+    const { _id, password, google, email, ...rest } = req.body   // Se maneja el Id, no se puede procesar por choque con la DB
     //Validacion contra la DB para poder actualizar
     if (password) {
         // Encriptar password
@@ -61,6 +62,7 @@ const userPut = async (req, res) => {
         userDB
     })
 }
+
 const userDelete = async (req, res) => {
     const { id } = req.params
     //Borrado  fisico en DB
@@ -72,9 +74,6 @@ const userDelete = async (req, res) => {
 
     res.json(user)
 }
-
-
-
 
 module.exports = {
     userGet,

@@ -1,6 +1,6 @@
 const { Schema, model } = require('mongoose')
 
-// Se vincula con la colección que se creo directamente en la DB mongoose
+// Se vincula con la colección que se creo directamente en la mongoDB
 const RoleSchema = Schema({
     role: {
         type: String,
